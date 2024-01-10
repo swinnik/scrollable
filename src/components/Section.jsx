@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 const Section = ({ id }) => {
   return (
-    <div id={id}>
+    <div id={id} style={Styles.Section}>
       <div>
         <strong>{id}</strong>
       </div>
@@ -48,3 +48,9 @@ const Section = ({ id }) => {
 };
 
 export default Section;
+
+const Styles = {
+  Section: {
+    margin: "0 100px",
+  },
+};
