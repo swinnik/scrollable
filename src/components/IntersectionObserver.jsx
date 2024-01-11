@@ -37,7 +37,7 @@ const YourComponent = ({ setSelected, searchParams }) => {
   };
 
   return (
-    <div ref={targetRef} className="your-component" onClick={scrollToTop}>
+    <div ref={targetRef} className="scroll-to-top" onClick={scrollToTop}>
       <div>Scroll to Top</div>
     </div>
   );
