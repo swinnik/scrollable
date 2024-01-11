@@ -27,14 +27,12 @@ const NavLinks = ({
       scroll.scrollToTop();
       searchParams.delete("section");
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
-      setSelected(false);
       return;
     } else {
       const element = document.getElementById(section);
       element.scrollIntoView({ behavior: "smooth" });
       searchParams.set("section", `${section}`);
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
-      setSelected(section);
     }
   };
 
