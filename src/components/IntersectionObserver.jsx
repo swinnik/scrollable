@@ -3,7 +3,7 @@ import "../assets/styles/Animations.css"; // You can define your styles in a sep
 import { animateScroll as scroll } from "react-scroll";
 import styled from "styled-components";
 
-const YourComponent = ({ setSelected, searchParams }) => {
+const YourComponent = ({ setSelected, searchParams, id }) => {
   const targetRef = useRef(null);
 
   useEffect(() => {
@@ -14,6 +14,15 @@ const YourComponent = ({ setSelected, searchParams }) => {
             // When the target element is in view, add a class or trigger animations
             entry.target.classList.add("animate");
             observerInstance.unobserve(entry.target);
+            let targetId = entry.target.id;
+            console.log(entry.target.id, "IDIDIDI");
+            searchParams.set("section", `${targetId}`);
+            window.history.replaceState(
+              null,
+              null,
+              `?${searchParams.toString()}`
+            );
+            setSelected(targetId);
           }
         });
       },
@@ -38,7 +47,12 @@ const YourComponent = ({ setSelected, searchParams }) => {
   };
 
   return (
-    <div ref={targetRef} className="scroll-to-top" onClick={scrollToTop}>
+    <div
+      ref={targetRef}
+      id={id}
+      className="scroll-to-top"
+      onClick={scrollToTop}
+    >
       <div>Scroll to Top</div>
     </div>
   );
