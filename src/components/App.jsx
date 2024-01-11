@@ -4,6 +4,7 @@ import Footer from "./Footer.jsx";
 import Section from "./Section.jsx";
 import { Link, Element, animateScroll as scroll } from "react-scroll";
 import NavLinks from "./NavLinks.jsx";
+import IntersectionObserver from "./IntersectionObserver.jsx";
 // import { useNavigate } from "react-router-dom";
 
 const App = () => {
@@ -12,26 +13,23 @@ const App = () => {
 
   const [selected, setSelected] = useState(false);
 
-  let currentSection = searchParams.get("section");
-
-  currentSection = currentSection && parseInt(currentSection);
-
-  useEffect(() => {
-    if (currentSection) {
-      setSelected(currentSection);
-    }
-  }, [currentSection]);
-
-  const sections = sectionsTemplate.map((section) => {
-    return <Section key={`${section}`} id={`${section}`} />;
-  });
-
   const NavLinkProps = {
     selected,
     setSelected,
     searchParams,
     sectionsTemplate,
   };
+
+  const sectionProps = {
+    selected,
+    setSelected,
+    searchParams,
+    sectionsTemplate,
+  };
+
+  const sections = sectionsTemplate.map((section) => {
+    return <Section key={`${section}`} id={`${section}`} {...sectionProps} />;
+  });
 
   return (
     <div style={styles.app}>
@@ -40,8 +38,9 @@ const App = () => {
       </ul>
       {sections}
 
-      <Section id="section x" />
-      <Footer />
+      <Section id="section x" {...sectionProps} />
+
+      {/* <Footer /> */}
     </div>
   );
 };

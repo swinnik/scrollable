@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
+import IntersectionObserver from "./IntersectionObserver.jsx";
 
-const Section = ({ id }) => {
+const Section = ({ id, setSelected }) => {
   const searchParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
@@ -54,6 +55,10 @@ const Section = ({ id }) => {
       voluptates? Quisquam, Lorem ipsum dolor sit amet consectetur adipisicing
       elit. Quisquam, quia voluptates? Quisquam, quia voluptates? Quisquam, quia
       voluptates? Quisquam,
+      <IntersectionObserver
+        setSelected={setSelected}
+        searchParams={searchParams}
+      />
     </div>
   );
 };
