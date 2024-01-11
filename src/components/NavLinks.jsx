@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
+import styled from "styled-components";
 
 const NavLinks = ({
   selected,
@@ -37,6 +38,27 @@ const NavLinks = ({
     }
   };
 
+  // const handleLinkHover = (section, isHover) => {
+  //   const sectionIndex = sectionsTemplate.indexOf(section);
+  //   const linkElement = sectionRefs[sectionIndex].current;
+  //   if (isHover) {
+  //     console.log(" ENTER ");
+  //   }
+  //   if (!isHover) {
+  //     console.log(" LEAVE ");
+  //   }
+  //   if (linkElement) {
+  //     console.log(
+  //       "LINK ELEMENT",
+  //       parseInt(linkElement.props.id.split(" ")[1]) + 1
+  //     );
+  //     // Apply or remove the hover styles based on the isHover parameter
+  //     linkElement.style.boxShadow = isHover
+  //       ? styles.linkHover.boxShadow
+  //       : styles.link.boxShadow;
+  //   }
+  // };
+
   const navLinks = sectionsTemplate.map((section, i) => {
     return (
       <li style={styles.navLink}>
@@ -47,24 +69,50 @@ const NavLinks = ({
           duration={900}
           ref={sectionRefs[section]}
           key={section}
+          id={`link ${section}`}
           onClick={(e) => handleNavClick(e)}
         >
           {" "}
           {selected == section ? (
-            <div style={styles.link}>
+            <StyledLink>
               <strong>section {section}</strong>
-            </div>
+            </StyledLink>
           ) : (
-            <div style={styles.link}>section {section}</div>
+            <StyledLink>section {section}</StyledLink>
           )}
         </Link>
       </li>
     );
   });
+
   return <div>{navLinks} </div>;
 };
 
 export default NavLinks;
+
+const StyledNavLinks = styled.div`
+  padding: 3px;
+  z-index: 1;
+`;
+
+const StyledLink = styled.div`
+  cursor: pointer;
+  z-index: 1;
+  background-color: lightblue;
+  border-radius: 1em;
+  margin-top: 1em;
+  width: fit-content;
+  padding: 1em;
+  font-size: 1em;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 0px black;
+  }
+  &:active {
+    box-shadow: 0px 0px 10px 0px black inset;
+  }
+`;
 
 const styles = {
   navLink: {
