@@ -19,14 +19,14 @@ const NavLinks = ({
 
     const section = e.target.innerText.split(" ")[1];
 
-    if (currentSection === `section ${section}`) {
+    if (currentSection === `${section}`) {
       scroll.scrollToTop();
       searchParams.delete("section");
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
       setSelected(false);
       return;
     } else {
-      searchParams.set("section", `section ${section}`);
+      searchParams.set("section", `${section}`);
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
       setSelected(section);
     }

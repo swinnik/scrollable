@@ -13,7 +13,7 @@ const App = () => {
   const [selected, setSelected] = useState(false);
 
   let currentSection = searchParams.get("section");
-  currentSection = currentSection && searchParams.get("section").split(" ")[1];
+
   currentSection = currentSection && parseInt(currentSection);
 
   useEffect(() => {
