@@ -1,6 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 const Section = ({ id }) => {
+  const searchParams = new URLSearchParams(window.location.search);
+
+  useEffect(() => {
+    const currentSection = searchParams.get("section");
+    console.log({ currentSection });
+    if (currentSection === id) {
+      const element = document.getElementById(id);
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
   return (
     <div id={id} style={Styles.Section}>
       <div>
