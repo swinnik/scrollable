@@ -55,10 +55,10 @@ const Section = ({ id, setSelected }) => {
       voluptates? Quisquam, Lorem ipsum dolor sit amet consectetur adipisicing
       elit. Quisquam, quia voluptates? Quisquam, quia voluptates? Quisquam, quia
       voluptates? Quisquam,
-      {/* <IntersectionObserver
+      <IntersectionObserver
         setSelected={setSelected}
         searchParams={searchParams}
-      /> */}
+      />
     </div>
   );
 };
