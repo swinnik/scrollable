@@ -68,6 +68,7 @@ export default Section;
 
 const Styles = {
   Section: {
-    margin: "0 100px",
+    margin: "10px 100px",
+    padding: "20px",
   },
 };

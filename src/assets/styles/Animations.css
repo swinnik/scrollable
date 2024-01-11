@@ -29,3 +29,7 @@
 .scroll-to-top.animate:active {
   box-shadow: 0 0 10px 0 black inset;
 }
+
+.fill.animate {
+  fill: white;
+}

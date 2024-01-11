@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "../assets/styles/Animations.css"; // You can define your styles in a separate CSS file
+import "../assets/styles/Animations.css";
 import { animateScroll as scroll } from "react-scroll";
 import styled from "styled-components";
 
