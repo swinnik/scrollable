@@ -118,7 +118,7 @@ const styles = {
   navLink: {
     padding: "3px",
     zIndex: "1",
-    // width: "80px",
+    width: "fit-content",
   },
   link: {
     cursor: "pointer",

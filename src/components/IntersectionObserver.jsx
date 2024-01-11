@@ -41,7 +41,7 @@ const YourComponent = ({ setSelected, searchParams, id }) => {
 
   const scrollToTop = () => {
     scroll.scrollToTop();
-    searchParams.delete("section");
+    // searchParams.delete("section");
     window.history.replaceState(null, null, `?${searchParams.toString()}`);
     setSelected(false);
   };

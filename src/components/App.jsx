@@ -42,6 +42,7 @@ const App = () => {
           padding: "0px",
           margin: "20px",
           zIndex: 5,
+          width: "fit-content",
         }}
       >
         <NavLinks {...NavLinkProps} />
