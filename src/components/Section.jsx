@@ -56,6 +56,7 @@ const Section = ({ id, setSelected }) => {
       elit. Quisquam, quia voluptates? Quisquam, quia voluptates? Quisquam, quia
       voluptates? Quisquam,
       <IntersectionObserver
+        id={id}
         setSelected={setSelected}
         searchParams={searchParams}
       />
