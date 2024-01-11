@@ -24,6 +24,9 @@ const NavLinks = ({
     const section = e.target.innerText.split(" ")[1];
 
     if (currentSection == `${section}`) {
+      if (currentSection == 1) {
+        return;
+      }
       scroll.scrollToTop();
       searchParams.delete("section");
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
