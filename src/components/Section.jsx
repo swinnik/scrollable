@@ -6,7 +6,7 @@ const Section = ({ id }) => {
   useEffect(() => {
     const currentSection = searchParams.get("section");
 
-    if (currentSection === id) {
+    if (currentSection == id) {
       const element = document.getElementById(id);
       element.scrollIntoView({ behavior: "smooth" });
     }

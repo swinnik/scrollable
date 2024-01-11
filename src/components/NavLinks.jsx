@@ -7,9 +7,9 @@ const NavLinks = ({
   searchParams,
   sectionsTemplate,
 }) => {
-  console.log(selected);
-  const selectedNumber = selected && parseInt(selected);
+  const selectedNumber = selected;
 
+  console.log({ selectedNumber });
   const sectionRefs = sectionsTemplate.map((section) => {
     return React.createRef();
   });
@@ -19,7 +19,7 @@ const NavLinks = ({
 
     const section = e.target.innerText.split(" ")[1];
 
-    if (currentSection === `${section}`) {
+    if (currentSection == `${section}`) {
       scroll.scrollToTop();
       searchParams.delete("section");
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
@@ -31,12 +31,12 @@ const NavLinks = ({
       setSelected(section);
     }
   };
+
   const navLinks = sectionsTemplate.map((section, i) => {
-    console.log({ selected }, { section });
     return (
       <li style={{ cursor: "pointer", marginTop: "10px" }}>
         <Link
-          to={`section ${section}`}
+          to={`${section}`}
           smooth={true}
           duration={900}
           ref={sectionRefs[section]}

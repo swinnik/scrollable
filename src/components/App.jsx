@@ -23,11 +23,7 @@ const App = () => {
   }, [currentSection]);
 
   const sections = sectionsTemplate.map((section) => {
-    return (
-      <Element name={`section ${section}`}>
-        <Section key={`section ${section}`} id={`section ${section}`} />{" "}
-      </Element>
-    );
+    return <Section key={`${section}`} id={`${section}`} />;
   });
 
   const NavLinkProps = {
