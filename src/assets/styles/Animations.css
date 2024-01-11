@@ -1,5 +1,5 @@
 /* CSS file */
-.your-component {
+.scroll-to-top {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -8,12 +8,14 @@
   height: 50px;
   background-color: blue;
   opacity: 0;
-  /* transform: translateX(-100%); */
-  transition: opacity 1s ease-in-out; /* Adjust the duration and easing function as needed */
+  transform: translateX(-100%);
+  transition: opacity 1s ease-in-out, background-color 1s ease-in-out,
+    transform 1s ease-in-out; /* Adjust the duration and easing function as needed */
 }
 
-.your-component.animate {
+.scroll-to-top.animate {
   opacity: 1;
+  background-color: red;
 
-  /* transform: translateX(0%); */
+  transform: translateX(0%);
 }

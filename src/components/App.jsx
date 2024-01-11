@@ -33,7 +33,17 @@ const App = () => {
 
   return (
     <div style={styles.app}>
-      <ul style={{ position: "fixed", left: 0, right: 0 }}>
+      <ul
+        style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          listStyleType: "none",
+          padding: "0px",
+          margin: "20px",
+          zIndex: 5,
+        }}
+      >
         <NavLinks {...NavLinkProps} />
       </ul>
       {sections}

@@ -39,8 +39,9 @@ const NavLinks = ({
 
   const navLinks = sectionsTemplate.map((section, i) => {
     return (
-      <li style={{ cursor: "pointer", marginTop: "10px" }}>
+      <li style={styles.navLink}>
         <Link
+          // style={styles.link}
           to={`${section}`}
           smooth={true}
           duration={900}
@@ -50,9 +51,11 @@ const NavLinks = ({
         >
           {" "}
           {selected == section ? (
-            <strong>section {section}</strong>
+            <div style={styles.link}>
+              <strong>section {section}</strong>
+            </div>
           ) : (
-            <div>section {section}</div>
+            <div style={styles.link}>section {section}</div>
           )}
         </Link>
       </li>
@@ -62,3 +65,21 @@ const NavLinks = ({
 };
 
 export default NavLinks;
+
+const styles = {
+  navLink: {
+    padding: "3px",
+    zIndex: "1",
+    // width: "80px",
+  },
+  link: {
+    cursor: "pointer",
+    zIndex: "1",
+    backgroundColor: "lightblue",
+    borderRadius: "1em",
+    marginTop: "1em",
+    width: "fit-content",
+    padding: "1em",
+    fontSize: "1em",
+  },
+};
