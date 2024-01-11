@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavLinks = ({
@@ -10,6 +10,11 @@ const NavLinks = ({
   const sectionRefs = sectionsTemplate.map((section) => {
     return React.createRef();
   });
+
+  useEffect(() => {
+    const currentSection = searchParams.get("section");
+    setSelected(currentSection);
+  }, []);
 
   const handleNavClick = (e) => {
     const currentSection = searchParams.get("section");
