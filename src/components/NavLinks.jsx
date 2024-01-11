@@ -7,17 +7,15 @@ const NavLinks = ({
   searchParams,
   sectionsTemplate,
 }) => {
-  const selectedNumber = selected;
-
-  console.log({ selectedNumber });
   const sectionRefs = sectionsTemplate.map((section) => {
     return React.createRef();
   });
 
   const handleNavClick = (e) => {
     const currentSection = searchParams.get("section");
+    console.log({ currentSection });
 
-    const section = e.target.innerText.split(" ")[1];
+    const section = e.target.id;
 
     if (currentSection == `${section}`) {
       scroll.scrollToTop();
@@ -44,7 +42,7 @@ const NavLinks = ({
           onClick={(e) => handleNavClick(e)}
         >
           {" "}
-          {selectedNumber == section ? (
+          {selected == section ? (
             <strong>section {section}</strong>
           ) : (
             <div>section {section}</div>
