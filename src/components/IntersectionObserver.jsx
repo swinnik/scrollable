@@ -13,7 +13,7 @@ const YourComponent = ({ setSelected, searchParams, id }) => {
           if (entry.isIntersecting) {
             // When the target element is in view, add a class or trigger animations
             entry.target.classList.add("animate");
-            observerInstance.unobserve(entry.target);
+            // observerInstance.unobserve(entry.target);
             let targetId = entry.target.id;
             console.log(entry.target.id, "IDIDIDI");
             searchParams.set("section", `${targetId}`);
