@@ -5,6 +5,7 @@ import Section from "./Section.jsx";
 import { Link, Element, animateScroll as scroll } from "react-scroll";
 import NavLinks from "./NavLinks.jsx";
 import IntersectionObserver from "./IntersectionObserver.jsx";
+import ProgressBar from "./ProgressBar.jsx";
 // import { useNavigate } from "react-router-dom";
 
 const Scrollable = () => {
@@ -12,6 +13,27 @@ const Scrollable = () => {
   const sectionsTemplate = Array.from({ length: 6 }, (x, i) => i + 1);
 
   const [selected, setSelected] = useState(false);
+
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+
+  const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight;
+
+    const scrollPercent = Math.round(
+      (scrollY / (scrollHeight - windowHeight)) * 100
+    );
+
+    setScrollPercentage((scrollPercentage) => {
+      return Math.max(scrollPercentage, scrollPercent);
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const NavLinkProps = {
     selected,
@@ -33,6 +55,7 @@ const Scrollable = () => {
 
   return (
     <div style={styles.Scrollable}>
+      <ProgressBar scrollPercentage={scrollPercentage} />
       <ul
         style={{
           position: "fixed",
