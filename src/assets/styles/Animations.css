@@ -7,7 +7,9 @@
   width: 100px;
   height: 50px;
   background-color: blue;
+  border-radius: 1em;
   opacity: 0;
+  margin: 1em auto;
   transform: translateX(-100%);
   transition: opacity 1s ease-in-out, background-color 1s ease-in-out,
     transform 1s ease-in-out; /* Adjust the duration and easing function as needed */
@@ -18,4 +20,12 @@
   background-color: red;
 
   transform: translateX(0%);
+}
+
+.scroll-to-top.animate:hover {
+  box-shadow: 0 0 10px 0 black;
+}
+
+.scroll-to-top.animate:active {
+  box-shadow: 0 0 10px 0 black inset;
 }
