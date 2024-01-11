@@ -24,6 +24,8 @@ const NavLinks = ({
       setSelected(false);
       return;
     } else {
+      const element = document.getElementById(section);
+      element.scrollIntoView({ behavior: "smooth" });
       searchParams.set("section", `${section}`);
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
       setSelected(section);
@@ -38,7 +40,6 @@ const NavLinks = ({
           smooth={true}
           duration={900}
           ref={sectionRefs[section]}
-          id={`${section}`}
           key={section}
           onClick={(e) => handleNavClick(e)}
         >
