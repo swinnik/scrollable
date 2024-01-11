@@ -15,7 +15,7 @@ const NavLinks = ({
     const currentSection = searchParams.get("section");
     console.log({ currentSection });
 
-    const section = e.target.id;
+    const section = e.target.innerText.split(" ")[1];
 
     if (currentSection == `${section}`) {
       scroll.scrollToTop();
@@ -38,6 +38,7 @@ const NavLinks = ({
           smooth={true}
           duration={900}
           ref={sectionRefs[section]}
+          id={`${section}`}
           key={section}
           onClick={(e) => handleNavClick(e)}
         >
