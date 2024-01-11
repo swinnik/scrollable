@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavLinks = ({
@@ -7,7 +7,8 @@ const NavLinks = ({
   searchParams,
   sectionsTemplate,
 }) => {
-  // const sectionsTemplate = Array.from({ length: 6 }, (x, i) => i + 1);
+  console.log(selected);
+  const selectedNumber = selected && parseInt(selected);
 
   const sectionRefs = sectionsTemplate.map((section) => {
     return React.createRef();
@@ -22,6 +23,7 @@ const NavLinks = ({
       scroll.scrollToTop();
       searchParams.delete("section");
       window.history.replaceState(null, null, `?${searchParams.toString()}`);
+      setSelected(false);
       return;
     } else {
       searchParams.set("section", `section ${section}`);
@@ -30,6 +32,7 @@ const NavLinks = ({
     }
   };
   const navLinks = sectionsTemplate.map((section, i) => {
+    console.log({ selected }, { section });
     return (
       <li style={{ cursor: "pointer", marginTop: "10px" }}>
         <Link
@@ -41,12 +44,10 @@ const NavLinks = ({
           onClick={(e) => handleNavClick(e)}
         >
           {" "}
-          {selected === section ? (
+          {selectedNumber == section ? (
             <strong>section {section}</strong>
           ) : (
-            <strong>
-              <div>section {section}</div>
-            </strong>
+            <div>section {section}</div>
           )}
         </Link>
       </li>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import colorPalette from "../assets/styles/colorPalette.js";
 import Footer from "./Footer.jsx";
 import Section from "./Section.jsx";
@@ -11,6 +11,16 @@ const App = () => {
   const sectionsTemplate = Array.from({ length: 6 }, (x, i) => i + 1);
 
   const [selected, setSelected] = useState(false);
+
+  let currentSection = searchParams.get("section");
+  currentSection = currentSection && searchParams.get("section").split(" ")[1];
+  currentSection = currentSection && parseInt(currentSection);
+
+  useEffect(() => {
+    if (currentSection) {
+      setSelected(currentSection);
+    }
+  }, [currentSection]);
 
   const sections = sectionsTemplate.map((section) => {
     return (
